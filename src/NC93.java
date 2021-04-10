@@ -3,6 +3,8 @@
  * @create 2021-03-19-18:11
  */
 
+import com.sun.xml.internal.ws.api.message.Header;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +20,13 @@ import java.util.Map;
  若opt=1，接下来两个整数x, y，表示set(x, y)
  若opt=2，接下来一个整数x，表示get(x)，若x未出现过或已被移除，则返回-1
  对于每个操作2，输出一个答案
+
+ 输入
+ [[1,1,1],[1,2,2],[1,3,2],[2,1],[1,4,4],[2,2]],3
+
+ 返回值
+ [1,-1]
+
  */
 public class NC93 {
     /**
@@ -70,18 +79,22 @@ public class NC93 {
         return result;
     }
 
+
+
     public void set(int key,int val){
-        if(get(key)!=-1) {
+        if(get(key)!=-1) {//存了 更新
             Node node = map.get(key);
-            node.val = val;//更新值
-            //把他从当前位置卸下
+            node.val = val;
+
+            //提到最前面
             if(node.pre!=head){
                 node.pre.next = node.next;
                 node.next.pre = node.pre;
                 connectToHead(node);
             }
+
         }
-        else{
+        else{//还没存
             if(map.size()==k){//移除最久未使用的
                 int remove = tail.pre.key;
                 tail.pre.pre.next = tail;
@@ -112,8 +125,10 @@ public class NC93 {
 
     public void connectToHead(Node node){//从后往前 先右后左
         node.next = head.next;
-        head.next.pre = node;
+        node.next.pre = node;
         head.next = node;
-        node.pre = head;
+        node.pre  = head;
     }
+
+
 }
