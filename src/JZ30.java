@@ -16,7 +16,7 @@ import java.util.Arrays;
  * 复制
  * 18
  * 说明
- * 输入的数组为{1,-2,3,10,—4,7,2,一5}，和最大的子数组为{3,10,一4,7,2}，因此输出为该子数组的和 18。 
+ * 输入的数组为{1,-2,3,10,—4,7,2,一5}，和最大的子数组为{3,10,一4,7,2}，因此输出为该子数组的和 18。
  */
 public class JZ30 {
     public int FindGreatestSumOfSubArray(int[] array) {
