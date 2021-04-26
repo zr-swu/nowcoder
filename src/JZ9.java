@@ -25,21 +25,11 @@ import org.junit.jupiter.api.Test;
  如果上一步跳 n 步到达第 n 个台阶，说明上一步在第 0 个台阶。已知跳到 第0个台阶的方法数为f[0]
 
  f(n) = f(n-1) + f(n-2)+ ... f(1)
- f(n-1) = f(n-2) + ... + f(1)
-
- 得
- f(n) = 2f(n-1)
-
- f(1) = 1
- */
-public class JZ9 {
-    public int jumpFloorII(int target) {
-
-        return target<=0?0:1<<target-1;
+ f(n-1) = f(n-2) + ... + Mlic static void main(String[] args) {
+        int a = 10;
+        int b = a++ + ++a + a--;
+        System.out.println(a);
+        System.out.println(b);
     }
 
-    @Test
-    public void test(){
-        System.out.println(jumpFloorII(3));
-    }
-}
+}*/
